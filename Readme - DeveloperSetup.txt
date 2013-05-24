@@ -6,4 +6,6 @@ Instructions for setting up this solution:
 2) Ensure you have Package Restore turned in within Visual Studio:
 	Tools > Options > Package Manager > check off "Allow Nuget to download packages"
 
-3) 
+3) Create an account (or use existing) on Github.com
+
+4) Setup your Windows Github Client: http://windows.github.com/
