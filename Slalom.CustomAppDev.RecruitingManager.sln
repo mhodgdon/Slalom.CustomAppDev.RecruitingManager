@@ -1,7 +1,54 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F97CA14-A140-43EA-93FA-7A5CC0C91C0A}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Readme - DeveloperSetup.txt = Readme - DeveloperSetup.txt
+		Slalom.CustomAppDev.RecruitingManager.vsmdi = Slalom.CustomAppDev.RecruitingManager.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slalom.CustomAppDev.RecruitingManager.API", "Slalom.CustomAppDev.RecruitingManager.API\Slalom.CustomAppDev.RecruitingManager.API.csproj", "{41B44AA5-B5D3-4478-9910-08A677E25F61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slalom.CustomAppDev.RecruitingManager.Commons", "Slalom.CustomAppDev.RecruitingManager.Commons\Slalom.CustomAppDev.RecruitingManager.Commons.csproj", "{42140D64-8C37-40F7-B150-03BDDF906A06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slalom.CustomAppDev.RecruitingManager.Data", "Slalom.CustomAppDev.RecruitingManager.Data\Slalom.CustomAppDev.RecruitingManager.Data.csproj", "{19F62C9F-F456-46D9-8734-62BF00ABF181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slalom.CustomAppDev.RecruitingManager.UnitTests", "Slalom.CustomAppDev.RecruitingManager.UnitTests\Slalom.CustomAppDev.RecruitingManager.UnitTests.csproj", "{88BCBDED-1826-4FB2-8B4A-B62DFF9555FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slalom.CustomAppDev.RecruitingManager.Web", "Slalom.CustomAppDev.RecruitingManager.Web\Slalom.CustomAppDev.RecruitingManager.Web.csproj", "{131DCB41-B196-43A8-8A0E-8625BB6B7357}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Slalom.CustomAppDev.RecruitingManager.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41B44AA5-B5D3-4478-9910-08A677E25F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B44AA5-B5D3-4478-9910-08A677E25F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B44AA5-B5D3-4478-9910-08A677E25F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B44AA5-B5D3-4478-9910-08A677E25F61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42140D64-8C37-40F7-B150-03BDDF906A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42140D64-8C37-40F7-B150-03BDDF906A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42140D64-8C37-40F7-B150-03BDDF906A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42140D64-8C37-40F7-B150-03BDDF906A06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F62C9F-F456-46D9-8734-62BF00ABF181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F62C9F-F456-46D9-8734-62BF00ABF181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F62C9F-F456-46D9-8734-62BF00ABF181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F62C9F-F456-46D9-8734-62BF00ABF181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88BCBDED-1826-4FB2-8B4A-B62DFF9555FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BCBDED-1826-4FB2-8B4A-B62DFF9555FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BCBDED-1826-4FB2-8B4A-B62DFF9555FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BCBDED-1826-4FB2-8B4A-B62DFF9555FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{131DCB41-B196-43A8-8A0E-8625BB6B7357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{131DCB41-B196-43A8-8A0E-8625BB6B7357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{131DCB41-B196-43A8-8A0E-8625BB6B7357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{131DCB41-B196-43A8-8A0E-8625BB6B7357}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
