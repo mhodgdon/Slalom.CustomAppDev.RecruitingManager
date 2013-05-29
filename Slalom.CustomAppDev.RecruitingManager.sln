@@ -2,12 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F97CA14-A140-43EA-93FA-7A5CC0C91C0A}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		Readme - DeveloperSetup.txt = Readme - DeveloperSetup.txt
-		Slalom.CustomAppDev.RecruitingManager.vsmdi = Slalom.CustomAppDev.RecruitingManager.vsmdi
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slalom.CustomAppDev.RecruitingManager.API", "Slalom.CustomAppDev.RecruitingManager.API\Slalom.CustomAppDev.RecruitingManager.API.csproj", "{41B44AA5-B5D3-4478-9910-08A677E25F61}"
 EndProject
@@ -20,11 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slalom.CustomAppDev.RecruitingManager.Web", "Slalom.CustomAppDev.RecruitingManager.Web\Slalom.CustomAppDev.RecruitingManager.Web.csproj", "{131DCB41-B196-43A8-8A0E-8625BB6B7357}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7D43F8C1-5767-406E-B38A-986E4C12B339}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
