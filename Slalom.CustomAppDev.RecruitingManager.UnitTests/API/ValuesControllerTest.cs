@@ -13,6 +13,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Tests.Controllers
     [TestClass]
     public class ValuesControllerTest
     {
+        /*
         [TestMethod]
         public void Get()
         {
@@ -77,5 +78,6 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Tests.Controllers
 
             // Assert
         }
+         */
     }
 }
