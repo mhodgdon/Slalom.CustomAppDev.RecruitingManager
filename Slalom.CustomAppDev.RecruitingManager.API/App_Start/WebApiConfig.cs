@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Net.Http.Formatting;
 
 namespace Slalom.CustomAppDev.RecruitingManager.API
 {
@@ -14,6 +15,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
         }
     }
 }
