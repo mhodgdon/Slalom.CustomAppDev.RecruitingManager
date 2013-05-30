@@ -2,38 +2,44 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Http;
 
 namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
 {
     public class CompetencyController : ApiController
     {
-        // GET api/values
+
+        [HttpGet, ActionName("Action")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        [HttpGet, ActionName("Action")]
+        public string Get(int identifier)
         {
             return "value";
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
+        [HttpGet, ActionName("GetByCategory")]
+        public string Get(string identifier)
         {
-            throw new NotImplementedException("This verb is not yet supported for this controller");
+            return "value";
         }
 
-        // PUT api/values/5
+        [HttpPost, ActionName("Action")]
+        public void Post([FromBody]string value)
+        {
+            return; //noop
+        }
+
+        [HttpPut, ActionName("Action")]
         public void Put(int id, [FromBody]string value)
         {
             throw new NotImplementedException("This verb is not yet supported for this controller");
         }
 
-        // DELETE api/values/5
+        [HttpDelete, ActionName("Action")]
         public void Delete(int id)
         {
             throw new NotImplementedException("This verb is not yet supported for this controller");

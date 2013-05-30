@@ -12,8 +12,8 @@ namespace Slalom.CustomAppDev.RecruitingManager.API
         {
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{action}/{identifier}",
+                defaults: new { identifier = RouteParameter.Optional }
             );
 
         }
