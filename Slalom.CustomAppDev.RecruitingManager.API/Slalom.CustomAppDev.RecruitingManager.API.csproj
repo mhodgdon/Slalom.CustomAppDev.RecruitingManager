@@ -126,10 +126,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
+    <Compile Include="Controllers\CompetencyAreaController.cs" />
     <Compile Include="Controllers\CompetencyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterviewerController.cs" />
-    <Compile Include="Controllers\InterviewQuestionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,6 +252,10 @@
     <ProjectReference Include="..\Slalom.CustomAppDev.RecruitingManager.Data\Slalom.CustomAppDev.RecruitingManager.Data.csproj">
       <Project>{19F62C9F-F456-46D9-8734-62BF00ABF181}</Project>
       <Name>Slalom.CustomAppDev.RecruitingManager.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Slalom.CustomAppDev.RecruitingManager.DomainObjects\Slalom.CustomAppDev.RecruitingManager.DomainObjects.csproj">
+      <Project>{5669273B-2DD0-4FC2-84C8-5E7994FCDFE1}</Project>
+      <Name>Slalom.CustomAppDev.RecruitingManager.DomainObjects</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

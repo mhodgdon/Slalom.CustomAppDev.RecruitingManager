@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>b77d7e2e-6341-45ce-bd4e-b6fbc2f47c8e</ProjectGuid>
+    <ProjectGuid>{5669273B-2DD0-4FC2-84C8-5E7994FCDFE1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Slalom.CustomAppDev.RecruitingManager.DomainObjects</RootNamespace>
@@ -40,9 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Candidate\CandidateDomainObject.cs" />
+    <Compile Include="Common\ExperienceLevel.cs" />
+    <Compile Include="Competency\CompetencyArea.cs" />
+    <Compile Include="Competency\CompetencyDomainObject.cs" />
+    <Compile Include="Interviewer\InterviewerDataContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

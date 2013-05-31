@@ -3,46 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency;
 
 namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
 {
     public class CompetencyController : ApiController
     {
-
-        [HttpGet, ActionName("Action")]
-        public IEnumerable<string> Get()
+        /// <summary>
+        /// Returns all of the Competencies with the data on file
+        /// for a candidate specified by the Id
+        /// </summary>
+        public IEnumerable<CompetencyDomainObject> Get(int id)
         {
-            return new string[] { "value1", "value2" };
+            return new List<CompetencyDomainObject>()
+            {
+                new CompetencyDomainObject() { Id = id},
+                new CompetencyDomainObject() {}
+            };
         }
 
-        [HttpGet, ActionName("Action")]
-        public string Get(int identifier)
-        {
-            return "value";
+        /// <summary>
+        /// Records Feedback for a Candidate provided by an 
+        /// Interviwer specified by the Id parameter
+        /// </summary>
+        public void Post([FromBody]CompetencyDomainObject UpdateCompetency, int id)
+        { 
+        
         }
-
-        [HttpGet, ActionName("GetByCategory")]
-        public string Get(string identifier)
-        {
-            return "value";
-        }
-
-        [HttpPost, ActionName("Action")]
-        public void Post([FromBody]string value)
-        {
-            return; //noop
-        }
-
-        [HttpPut, ActionName("Action")]
-        public void Put(int id, [FromBody]string value)
-        {
-            throw new NotImplementedException("This verb is not yet supported for this controller");
-        }
-
-        [HttpDelete, ActionName("Action")]
-        public void Delete(int id)
-        {
-            throw new NotImplementedException("This verb is not yet supported for this controller");
-        }   
     }
 }

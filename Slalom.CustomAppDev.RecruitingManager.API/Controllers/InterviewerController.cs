@@ -4,39 +4,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Interviewer;
 
 namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
 {
     public class InterviewerController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        /// <summary>
+        /// Returns the details for an Interviwer
+        /// </summary>
+        public InterviewerDataContract Get(int id)
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-            throw new NotImplementedException("This verb is not yet supported for this controller");
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-            throw new NotImplementedException("This verb is not yet supported for this controller");
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
-            throw new NotImplementedException("This verb is not yet supported for this controller");
+            return new InterviewerDataContract() { Id = 2, Email = "user@slalom.com"};
         }   
     }
 }
