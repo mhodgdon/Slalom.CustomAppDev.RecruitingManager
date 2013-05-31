@@ -22,6 +22,14 @@ namespace Slalom.CustomAppDev.RecruitingManager.API
                 }
             );
 
+            config.Routes.MapHttpRoute(
+               name: "Web API Resource",
+               routeTemplate: "Resources/{controller}/{filter}",
+               defaults: new
+               {
+                   filter = RouteParameter.Optional
+               }
+           );
             /* Use the routes below if you want to use a mix RPC and RESTful approach for controllers
             // GET /api/{resource}/{action}/{id}
             config.Routes.MapHttpRoute(

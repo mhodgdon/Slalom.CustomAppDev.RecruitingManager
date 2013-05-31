@@ -43,7 +43,7 @@
     <Compile Include="Candidate\CandidateDomainObject.cs" />
     <Compile Include="Candidate\CandidateFeedbackDomainObject.cs" />
     <Compile Include="Common\ExperienceLevel.cs" />
-    <Compile Include="Common\Title.cs" />
+    <Compile Include="Common\ConsultingRole.cs" />
     <Compile Include="Competency\CompetencyArea.cs" />
     <Compile Include="Competency\CompetencyDomainObject.cs" />
     <Compile Include="Interviewer\InterviewerDataContract.cs" />

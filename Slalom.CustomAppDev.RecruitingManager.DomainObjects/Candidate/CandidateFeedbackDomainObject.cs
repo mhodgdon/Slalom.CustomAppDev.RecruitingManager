@@ -11,7 +11,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.DomainObjects.Candidate
     {
         public CompetencyArea Specialization { get; set; }
 
-        public Title SuggestedTitle { get; set; }
+        public ConsultingRole SuggestedConsultingRole { get; set; }
 
         public ExperienceLevel SuggestedExperienceLevel { get; set; }
 

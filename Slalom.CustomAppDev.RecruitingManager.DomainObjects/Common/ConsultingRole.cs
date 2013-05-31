@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Slalom.CustomAppDev.RecruitingManager.DomainObjects.Common
 {
-    public enum Title
+    public enum ConsultingRole
     {
         Consultant = 0,
         SolutionArchitect = 1

@@ -7,11 +7,12 @@ namespace Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency
 {
     public enum CompetencyArea
     {
-        JavaAndOpenSource = 0,
-        DotNet = 1,
-        OtherPlatforms = 2,
-        GeneralEngineering = 3,
-        ProjectManagement = 4,
-        ConsultingSkills = 5
+        UnSelected,
+        JavaAndOpenSource,
+        DotNet,
+        OtherPlatforms,
+        GeneralEngineering,
+        ProjectManagement,
+        ConsultingSkills
     }
 }
