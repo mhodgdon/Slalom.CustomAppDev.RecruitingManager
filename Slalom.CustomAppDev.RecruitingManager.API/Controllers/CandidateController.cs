@@ -10,10 +10,6 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
 {
     public class CandidateController : ApiController
     {
-        // todo: make sure we can get each Competency Area at a time
-        // todo: Get Feedback
-        // todo: Get History 
-
         /// <summary>
         /// Returns a 'light' version of each User.  This call will return
         /// all users in the system (Completed and Not Completed).
@@ -45,12 +41,5 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
             
         }
 
-        /// <summary>
-        /// Adds a new Candidate into the system, and preps for the sytem
-        /// </summary>
-        public void Delete(int id)
-        {
-
-        }
     }
 }

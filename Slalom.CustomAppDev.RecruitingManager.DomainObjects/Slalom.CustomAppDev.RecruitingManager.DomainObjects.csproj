@@ -41,11 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Candidate\CandidateDomainObject.cs" />
+    <Compile Include="Candidate\CandidateFeedbackDomainObject.cs" />
     <Compile Include="Common\ExperienceLevel.cs" />
+    <Compile Include="Common\Title.cs" />
     <Compile Include="Competency\CompetencyArea.cs" />
     <Compile Include="Competency\CompetencyDomainObject.cs" />
     <Compile Include="Interviewer\InterviewerDataContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecruitingHistory\RecruitingHistoryDomainObject.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

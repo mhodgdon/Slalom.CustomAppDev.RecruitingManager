@@ -128,8 +128,10 @@
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\CompetencyAreaController.cs" />
     <Compile Include="Controllers\CompetencyController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterviewerController.cs" />
+    <Compile Include="Controllers\RecruitingHistoryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
