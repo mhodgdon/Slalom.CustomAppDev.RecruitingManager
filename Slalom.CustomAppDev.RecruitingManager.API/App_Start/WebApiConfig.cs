@@ -23,7 +23,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.API
             );
 
             config.Routes.MapHttpRoute(
-               name: "Web API Resource",
+               name: "Web API Resource (filtered)",
                routeTemplate: "Resources/{controller}/{filter}",
                defaults: new
                {

@@ -5,23 +5,41 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Candidate;
+using Slalom.CustomAppDev.RecruitingManager.Commons.DataRepositories;
 
 namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
 {
     public class CandidateController : ApiController
     {
+        #region Fields
+
+        ICandidateDataRepository candidateRepository;
+
+        #endregion
+
+        #region Ctors
+
+        public CandidateController() 
+        {
+            candidateRepository = new CandidateDataRepository();
+        }
+
+        public CandidateController(ICandidateDataRepository candidateRepository)
+        {
+            this.candidateRepository = candidateRepository;
+        }
+
+        #endregion
+
+        #region Api Methods
+
         /// <summary>
         /// Returns a 'light' version of each User.  This call will return
         /// all users in the system (Completed and Not Completed).
         /// </summary>
         public IEnumerable<CandidateDomainObject> Get()
         {
-            return new List<CandidateDomainObject>()
-            {
-                new CandidateDomainObject() {},
-                new CandidateDomainObject() {},
-                new CandidateDomainObject() {}
-            };
+            return candidateRepository.RetrieveAllCandidates();
         }
         
         /// <summary>
@@ -30,7 +48,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
         /// </summary>
         public CandidateDomainObject Get(int id)
         {
-            return new CandidateDomainObject() { Id = id};
+            return candidateRepository.RetrieveCandidate(id);
         }
 
         /// <summary>
@@ -38,8 +56,9 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
         /// </summary>
         public void Put([FromBody]CandidateDomainObject candidate)
         {
-            
+            candidateRepository.CreateCandidate(candidate);
         }
 
+        #endregion
     }
 }

@@ -10,6 +10,9 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
 {
     public class CompetencyAreaController : ApiController
     {
+
+        #region Api Methods
+
         /// <summary>
         /// Returns a list of all of the available Competency Areas
         /// </summary>
@@ -25,6 +28,9 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
                 CompetencyArea.OtherPlatforms,
                 CompetencyArea.ProjectManagement
             };
-        }
+        } 
+        
+        #endregion
+
     }
 }

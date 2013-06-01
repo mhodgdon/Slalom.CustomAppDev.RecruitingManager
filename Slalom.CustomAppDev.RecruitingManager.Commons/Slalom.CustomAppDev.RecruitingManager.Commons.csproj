@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,7 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataRepositories\CandidateDataRepository.cs" />
+    <Compile Include="DataRepositories\CompetencyDataRepository.cs" />
+    <Compile Include="DataRepositories\FeedbackDataRepository.cs" />
+    <Compile Include="DataRepositories\ICandidateDataRepository.cs" />
+    <Compile Include="DataRepositories\ICompetencyDataRepository.cs" />
+    <Compile Include="DataRepositories\IFeedbackDataRepository.cs" />
+    <Compile Include="DataRepositories\IInterviewerDataRepository.cs" />
+    <Compile Include="DataRepositories\InterviewerDataRepository.cs" />
+    <Compile Include="DataRepositories\IRecruitingHistoryDataRepository.cs" />
+    <Compile Include="DataRepositories\RecruitingHistoryDataRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Slalom.CustomAppDev.RecruitingManager.DomainObjects\Slalom.CustomAppDev.RecruitingManager.DomainObjects.csproj">
+      <Project>{5669273B-2DD0-4FC2-84C8-5E7994FCDFE1}</Project>
+      <Name>Slalom.CustomAppDev.RecruitingManager.DomainObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
