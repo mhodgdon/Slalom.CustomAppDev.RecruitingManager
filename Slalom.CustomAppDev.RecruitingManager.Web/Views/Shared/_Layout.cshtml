@@ -8,32 +8,21 @@
         @Styles.Render("~/Content/css")
         <link href="../../Content/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
         <link href="../../Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryui")
-        @Scripts.Render("~/bundles/bootstrap")
-    
-
-     
-   
-
+        @Scripts.Render("~/bundles/jqueryui") 
     </head>
     <body>
-        
-       
         <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
-
-
             </section>
         </div>
         <footer>
-          
         </footer>
-
-  
-        
-    </body>
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/competencyareas")
+  </body>
 </html>

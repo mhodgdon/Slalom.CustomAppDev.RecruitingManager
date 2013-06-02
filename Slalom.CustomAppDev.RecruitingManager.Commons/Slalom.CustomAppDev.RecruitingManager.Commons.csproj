@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataHelpers\CompetencyAreaHelper.cs" />
     <Compile Include="DataRepositories\CandidateDataRepository.cs" />
     <Compile Include="DataRepositories\CompetencyDataRepository.cs" />
     <Compile Include="DataRepositories\FeedbackDataRepository.cs" />

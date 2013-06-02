@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency;
+using Slalom.CustomAppDev.RecruitingManager.Commons.DataHelpers;
 
 namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
 {
@@ -19,15 +20,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
         /// <returns></returns>
         public List<CompetencyArea> Get()
         {
-            return new List<CompetencyArea>()
-            {
-                CompetencyArea.ConsultingSkills,
-                CompetencyArea.DotNet,
-                CompetencyArea.GeneralEngineering,
-                CompetencyArea.JavaAndOpenSource,
-                CompetencyArea.OtherPlatforms,
-                CompetencyArea.ProjectManagement
-            };
+            return CompetencyAreaHelper.GetAreas();
         } 
         
         #endregion

@@ -163,13 +163,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +231,12 @@
     <Content Include="Global.asax" />
     <Content Include="Images\BrendanPic.png" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\CompetencyAreas\ConsultingSkillsController.js" />
+    <Content Include="Scripts\CompetencyAreas\ProjectManagementController.js" />
+    <Content Include="Scripts\CompetencyAreas\OtherPlatformsController.js" />
+    <Content Include="Scripts\CompetencyAreas\JavaAndOpenSourceController.js" />
+    <Content Include="Scripts\CompetencyAreas\GeneralEngineeringController.js" />
+    <Content Include="Scripts\CompetencyAreas\DotNetController.js" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -291,12 +295,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\CardView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Slalom.CustomAppDev.RecruitingManager.Commons\Slalom.CustomAppDev.RecruitingManager.Commons.csproj">
+      <Project>{42140D64-8C37-40F7-B150-03BDDF906A06}</Project>
+      <Name>Slalom.CustomAppDev.RecruitingManager.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Slalom.CustomAppDev.RecruitingManager.DomainObjects\Slalom.CustomAppDev.RecruitingManager.DomainObjects.csproj">
+      <Project>{5669273B-2DD0-4FC2-84C8-5E7994FCDFE1}</Project>
+      <Name>Slalom.CustomAppDev.RecruitingManager.DomainObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,12 +1,15 @@
-﻿@{
+﻿@using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency;
+@model Slalom.CustomAppDev.RecruitingManager.Web.Models.HomeModel
+
+@{
     ViewBag.Title = "App Dev Interview Form";
 }
 @section featured {
 
+    
+
   <script type="text/javascript">
       $(function () {
-
-
 
           $("#selectedCandidate").hide();
           $(".interviewedAlready").hide();
@@ -89,36 +92,20 @@
              </div>
               
         </div>
-        
         <!--Add iterator for the accordion items -->
-
-            <div class="headerContainer"><h3>Java Competencies</h3></div>
-                <div class="contentContainer">   
-                
-                <div class="row">
-                  @for(int i=0; i < 6; i++)
-                  {
-                       @Html.Partial("CardView")
-                      }
-                 </div>
-              </div>
-       
-         
-            <div class="headerContainer"><h3>.NET Competencies</h3></div>
-                <div class="contentContainer"><p>Test 3</p></div>
-       
-
-            <div class="headerContainer"><h3>Other Software Engineering Competencies</h3></div>
-                <div class="contentContainer"><p>Test 3</p></div>
-  
-            <div class="headerContainer"><h3>Project Management Skills</h3></div>
-                <div class="contentContainer"><p>Test 3</p></div>
-
-            <div class="headerContainer"><h3>Consulting Skills</h3></div>
-                <div class="contentContainer"><p>Test 3</p></div>
-
+            @foreach (CompetencyArea area in Model.CompetencyAreas)
+            { 
+                <div class="headerContainer"><h3>@area.ToString()</h3></div>
+                <div class="contentContainer">
+                    <div class="row">
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        @Html.Partial("CardView")
+                    }
+                    </div>
+                </div>
+            }
         </div>
-
     </section>
 }
 
