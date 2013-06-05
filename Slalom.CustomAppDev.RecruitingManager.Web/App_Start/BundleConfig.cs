@@ -11,12 +11,19 @@ namespace Slalom.CustomAppDev.RecruitingManager.Web
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            angularSetup(bundles);
             competencyAreaSetup(bundles);
             jQuerySetup(bundles);
             shimsAndModernizationSetup(bundles);
             CSSSetup(bundles); 
             bootstrapSetup(bundles);
             jQueryStylesSetup(bundles);
+        }
+
+        private static void angularSetup(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/angular.js"));
         }
 
         private static void competencyAreaSetup(BundleCollection bundles)

@@ -1,26 +1,19 @@
-﻿<section class="card">
+﻿@using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency;
+@using Slalom.CustomAppDev.RecruitingManager.Web.ViewsHelpers;
+@model Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency.CompetencyArea
 
-                <div class="span4">
-                  <div class="cardContent">
-                  
-                 <strong>Competency Name</strong><br />
-                  <span>Brief Description</span><br /><br />
-
+<section class="card" ng-controller="@CardViewHelpers.GetAngularController(Model)">
+            <div class="span4">
+                <div class="cardContent" ng-repeat="Competency in CompetencyTileData()">
+                    <strong>{{Competency.CompetencyName}}</strong><br />
+                    <span>{{Competency.Description}}</span><br /><br />
                     <div class="interviewedAlready">
-                        
-                        <strong>Interview History</strong> <br />
-                        <span>Level: Pick a Level</span> <br />
-                        <span>Interviewed By: Go</span>
-                        
-                     
-                    </div>
-
-                    </div>
-                </div>
-              
-
-
-
+                        <strong>History: {{Competency.History}}</strong> <br />
+                        <span>Level: {{Competency.Level}}</span> <br />
+                        <span>Interviewed By: {{Competency.InterviewedBy}}</span>
+                   </div>
+               </div>
+            </div>
 </section>
 
 
