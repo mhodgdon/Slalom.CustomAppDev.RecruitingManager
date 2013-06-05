@@ -11,8 +11,11 @@
   <script type="text/javascript">
       $(function () {
 
-          $("#selectedCandidate").hide();
-          $(".interviewedAlready").hide();
+       
+
+
+          $('#formContainer').hide();
+
 
           $("#accordion").accordion({
               collapsible: true,
@@ -21,6 +24,8 @@
 
       });
 
+      
+      
       function showDiv() {
 
           $(".contentContainer").height(350);
@@ -28,45 +33,71 @@
           var alreadyInterviewed = true;
           $(".interviewedAlready").show();
       }
+
+
+      
+
+    
+
   </script>
 
-    <section class="featured">
+    <section class="featured" ng-controller="selectCandidateCntrl">
+
+
+ <div id="candidateCreator">
+
+
+
+                 
+    <div id="swipeUp" onclick="swipeTapped()">
+        <table><tr><td><h3>Select Candidate</h3></td><td ng-model="selectedCandidate">Selected Candidate: {{selectedCandidate.name}}</td></tr></table>
+         </div>
+   
+
+<div id="formContainer">
+   <div class="row">
+          
+          <div class="span10">
+          <h5>Create Candidate</h5>
+         
+
+         <form ng-submit="addCandidates()">
+         <span>Name: </span><input type="text" ng-model="candidateName" /><input class="submitButton" type="submit" value="add"></input>
+         </form>
+          
+          </div>
+          
+          
+          <div class="span10" >
+          <h5>Select a Candidate</h5>
+               
+            <select ng-model="selectedCandidate" ng-options="c.name for c in candidates">
+          
+            </select>
+               
+           </div>   
+     
+     
+          </div>
+                
+     </div>      
+     
+     </div> 
+
+
+                 
+ 
+
            
         <div id="accordion">
         
             <div class="headerContainer"><h3>Candidate Overview</h3></div>
+                
+                
                 <div class="contentContainer">
-                 <div class="title">
-                 <h4>Find A Candidate</h4>
-                 </div>
-                 <div class="row">
-                 <div class="span6">
-                 <h5>Search for Candidate</h5>
-                 </div>
-                 <div class="span6">
-                 <h5>Select a Candidate</h5>
-                 </div>
-                 </div>
-
-                 <div class="row">
-                    
-                    <div class="span6">
-                        <input type="search" />
-                        <button class="submitButton" onclick="showDiv()">Search</button>
-                    </div>
-
-                    <div class="span6">
-                        <select>
-                        <option>Test Option 1</option>
-                        <option>Test Option 2</option>
-                        </select>
-                    </div>
-  
-                 
-                 </div>
-                    
+                   
              
-             <!--Add show hide via JS -->
+          
               
               <div id="selectedCandidate">
               
@@ -79,10 +110,10 @@
                     </div>
 
                     <div class="span12">
-                    <strong>Name: </strong> <span>Brendan Schoch</span> <br />
-                    <strong>Number of Times Interviewed: </strong><span>3</span> <br />
-                    <strong>Interviewed By: </strong><span>Mikey B, Larry, Eric/Russell</span> <br />
-                    <span><textarea class="notes" disabled>Test some content in here</textarea></span>
+                    <strong>Name: </strong> <span ng-model="selectedCandidate">{{selectedCandidate.name}}</span> <br />
+                    <strong>Number of Times Interviewed: </strong><span ng-model="selectedCandidate">{{selectedCandidate.interviewedBy}}</span> <br />
+                    <strong>Interviewed By: </strong><span ng-model="selectedCandidate">{{selectedCandidate.timesInterviewed}}</span> <br />
+                    <strong>Notes: </strong><span class="notes" ng-model="selectedCandidate">{{selectedCandidate.Notes}}</span>
                     </div>
                
                 </div>
@@ -90,8 +121,11 @@
             
 
              </div>
+          
               
         </div>
+
+ 
         <!--Add iterator for the accordion items -->
             @foreach (CompetencyArea area in Model.CompetencyAreas)
             { 

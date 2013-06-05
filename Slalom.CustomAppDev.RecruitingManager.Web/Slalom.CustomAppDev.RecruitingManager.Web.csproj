@@ -248,12 +248,14 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\CompetencyAreas\CandidateController.js" />
     <Content Include="Scripts\CompetencyAreas\ConsultingSkillsController.js" />
     <Content Include="Scripts\CompetencyAreas\ProjectManagementController.js" />
     <Content Include="Scripts\CompetencyAreas\OtherPlatformsController.js" />
     <Content Include="Scripts\CompetencyAreas\JavaAndOpenSourceController.js" />
     <Content Include="Scripts\CompetencyAreas\GeneralEngineeringController.js" />
     <Content Include="Scripts\CompetencyAreas\DotNetController.js" />
+    <Content Include="Scripts\hammer.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />

@@ -18,6 +18,9 @@ namespace Slalom.CustomAppDev.RecruitingManager.Web
             CSSSetup(bundles); 
             bootstrapSetup(bundles);
             jQueryStylesSetup(bundles);
+            AngularSetup(bundles);
+            CandidateController(bundles);
+            HammerSetup(bundles);
         }
 
         private static void angularSetup(BundleCollection bundles)
@@ -59,23 +62,40 @@ namespace Slalom.CustomAppDev.RecruitingManager.Web
 
         private static void jQuerySetup(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+          //  bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                     //   "~/Scripts/jquery-{version}.js"));
 
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+              //          "~/Scripts/jquery-ui.js"));
 
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+        /*    bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.validate*")); */
         }
 
         private static void CSSSetup(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
+        }
+
+        private static void AngularSetup(BundleCollection bundles)
+        {
+
+            bundles.Add(new ScriptBundle("~/bundles/Angular").Include("~/Scripts/angular.js"));
+        }
+
+        private static void CandidateController(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/CandidateControl").Include("~/Scripts/CompetencyAreas/CandidateController.js"));
+        }
+
+        private static void HammerSetup(BundleCollection bundles)
+        {
+
+            bundles.Add(new ScriptBundle("~/bundles/Hammer").Include("~/Scripts/hammer.js"));
         }
 
         private static void shimsAndModernizationSetup(BundleCollection bundles)
