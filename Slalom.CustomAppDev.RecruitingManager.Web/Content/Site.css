@@ -15,6 +15,7 @@
 
 
 
+
 #selectCandidate
 {
 /* margin-left: 30%;
@@ -81,7 +82,7 @@ h4
 
 #swipeUp table
 {   margin-left: 40%;
-    width: 95%;
+    width: 75%;
 }
 .contentContainer
 {
@@ -131,4 +132,12 @@ h4
 {
  margin-left: 1%; 
  width: 98%;  
+}
+
+#dialog
+{
+ height:500px;
+ width: 500px;
+ background-color: White;
+    
 }

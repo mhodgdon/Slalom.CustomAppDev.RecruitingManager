@@ -1,8 +1,6 @@
 ﻿
-function selectCandidateCntrl($scope) {
+var selectCandidateCntrl = function($scope) {
 
-    
-   
     $scope.candidates = [
     { name: 'Brendan Schoch', interviewedBy: 'Michael Bruyette, Larry Ficek, Eric Winton, Russell Norris', timesInterviewed: '4', Notes: 'Fire Immediately'},
     { name: 'Larry Ficek', interviewedBy: 'Unknown Larry has been here forever', timesInterviewed: '1', Notes: 'Send to NYC' },
@@ -15,7 +13,7 @@ function selectCandidateCntrl($scope) {
 
     $scope.addCandidates = function () {
 
-        $scope.candidates.push({ name: $scope.candidateName });
+        $scope.candidates.push({ name: $scope.candidateName, interviewedBy: 'Current User', timesInterviewed: '1', Notes: '' });
         var selectAddedCandidate = $scope.candidates.length - 1;
         $scope.selectedCandidate = $scope.candidates[selectAddedCandidate];
 
@@ -24,13 +22,11 @@ function selectCandidateCntrl($scope) {
 }
 
 
-function swipeTapped() {
+var swipeTapped = function () {
+       
     var currentHeight = $('#candidateCreator').css("height");
-
-
     if (currentHeight == '200px') {
         candidateSelectFormHeight = '75px';
-
     }
     else {
         candidateSelectFormHeight = '200px';

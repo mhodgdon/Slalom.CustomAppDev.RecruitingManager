@@ -1,5 +1,8 @@
 ﻿@using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency;
 @model Slalom.CustomAppDev.RecruitingManager.Web.Models.HomeModel
+@using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency;
+@using Slalom.CustomAppDev.RecruitingManager.Web.ViewsHelpers;
+
 
 @{
     ViewBag.Title = "App Dev Interview Form";
@@ -57,7 +60,7 @@
 <div id="formContainer">
    <div class="row">
           
-          <div class="span10">
+          <div class="span9">
           <h5>Create Candidate</h5>
          
 
@@ -68,7 +71,7 @@
           </div>
           
           
-          <div class="span10" >
+          <div class="span9" >
           <h5>Select a Candidate</h5>
                
             <select ng-model="selectedCandidate" ng-options="c.name for c in candidates">
@@ -127,17 +130,28 @@
 
  
         <!--Add iterator for the accordion items -->
+           
+           
+          
             @foreach (CompetencyArea area in Model.CompetencyAreas)
             { 
+                 
                 <div class="headerContainer"><h3>@area.ToString()</h3></div>
-                <div class="contentContainer">
+                <div class="contentContainer" ng-controller="@CardViewHelpers.GetAngularController(area)">
                     <div class="row">
-                        @Html.Partial("CardView", area)
+                  
+                    <div ng-repeat="competency in competencies">
+                          @Html.Partial("CardView", area)
                     </div>
+                           </div>
                 </div>
             }
-        </div>
+             </div>
+
+
+            
+
     </section>
-}
+            }
 
 

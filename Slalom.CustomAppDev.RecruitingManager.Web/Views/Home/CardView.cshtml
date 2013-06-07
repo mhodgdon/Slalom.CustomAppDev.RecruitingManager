@@ -2,18 +2,34 @@
 @using Slalom.CustomAppDev.RecruitingManager.Web.ViewsHelpers;
 @model Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency.CompetencyArea
 
-<section class="card" ng-controller="@CardViewHelpers.GetAngularController(Model)">
-            <div class="span4">
-                <div class="cardContent" ng-repeat="Competency in CompetencyTileData()">
-                    <strong>{{Competency.CompetencyName}}</strong><br />
-                    <span>{{Competency.Description}}</span><br /><br />
+ <script>
+     $(function () {
+         $('#dialog').hide();
+     });
+    
+     function openModal()
+     {
+         $('dialog').show();
+     }
+  </script>
+
+<section class="card">
+            <div class="span4" onclick="openModal()">
+                <div class="cardContent">
+                    <strong>{{competency.CompetencyName}}</strong><br />
+                    <span>{{competency.Description}}</span><br /><br />
                     <div class="interviewedAlready">
-                        <strong>History: {{Competency.History}}</strong> <br />
-                        <span>Level: {{Competency.Level}}</span> <br />
-                        <span>Interviewed By: {{Competency.InterviewedBy}}</span>
+                        <strong>{{competency.History}}</strong> <br />
+                        <span>Level: {{competency.Level}}</span> <br />
+                        <span>Interviewed By: {{competency.InterviewedBy}}</span>
                    </div>
                </div>
             </div>
+
+ <div id="dialog" title="Basic Dialog">
+ <p>Test Content</p>
+ </div>
+        
 </section>
 
 
