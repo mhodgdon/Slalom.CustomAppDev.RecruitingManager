@@ -15,7 +15,7 @@
       $(function () {
 
        
-
+          $('#modalView').hide();
 
           $('#formContainer').hide();
 
@@ -37,7 +37,11 @@
           $(".interviewedAlready").show();
       }
 
+      function hideModal() {
 
+          $('#modalView').hide();
+
+      }
       
 
     
@@ -90,6 +94,7 @@
 
                  
  
+ 
 
            
         <div id="accordion">
@@ -131,8 +136,7 @@
  
         <!--Add iterator for the accordion items -->
            
-           
-          
+         
             @foreach (CompetencyArea area in Model.CompetencyAreas)
             { 
                  
@@ -149,6 +153,15 @@
              </div>
 
 
+
+         <div id="modalView">
+             <button class="modalBtn" onclick="hideModal()">Hide Modal</button>
+             
+             <p>Add some test content here</p>
+             
+             </div>
+          
+       
             
 
     </section>

@@ -2,20 +2,22 @@
 @using Slalom.CustomAppDev.RecruitingManager.Web.ViewsHelpers;
 @model Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency.CompetencyArea
 
- <script>
-     $(function () {
-         $('#dialog').hide();
-     });
-    
-     function openModal()
-     {
-         $('dialog').show();
+ <script type="text/javascript">
+
+     function newURL(id) {
+
+         $('#modalView').show(5000);
+         alert(id);
+     
      }
+  
   </script>
 
-<section class="card">
-            <div class="span4" onclick="openModal()">
+<section class="card">            
+      
+            <div class="span4" onclick="newURL({{$index + 1}})">
                 <div class="cardContent">
+              
                     <strong>{{competency.CompetencyName}}</strong><br />
                     <span>{{competency.Description}}</span><br /><br />
                     <div class="interviewedAlready">
@@ -25,11 +27,9 @@
                    </div>
                </div>
             </div>
+ 
 
- <div id="dialog" title="Basic Dialog">
- <p>Test Content</p>
- </div>
-        
+
 </section>
 
 

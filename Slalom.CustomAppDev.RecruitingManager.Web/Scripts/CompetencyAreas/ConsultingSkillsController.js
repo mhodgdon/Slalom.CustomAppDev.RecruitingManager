@@ -9,7 +9,7 @@
                InterviewedBy: 'John Doe'
            },
 
-            {  CompetencyName: 'Test',
+            { CompetencyName: 'Test',
                 Description: 'Test',
                 History: 'Test',
                 Level: 'Test',
