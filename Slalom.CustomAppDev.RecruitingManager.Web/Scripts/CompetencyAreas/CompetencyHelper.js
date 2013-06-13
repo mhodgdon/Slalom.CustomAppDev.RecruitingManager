@@ -9,10 +9,12 @@
 
    $scope.getSelectedCard = function (selectedIndex) {
 
-                $scope.selectedCard = $scope.competencies[selectedIndex];
-                $('#modalView').show(5000);
+      // $scope.selectedCard = $scope.competencies[selectedIndex];
+       $scope.selectedCard = competencyDetailModel('test', selectedIndex);
 
-            }
+       $('#modalView').show(5000);
+
+   }
 
 
 

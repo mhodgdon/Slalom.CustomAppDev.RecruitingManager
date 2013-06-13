@@ -1,7 +1,7 @@
 ﻿var competencyModel = function (CompetencyName) {
 
     var competencyPreview = getBaseCompetency(CompetencyName);
-    var competencyDetail = null; //Add Competency Detail Calls when selected 
+    
 
 
     function getBaseCompetency(CompetencyName) {
@@ -22,17 +22,6 @@
             }];
 
         return competencies;
-    }
-
-    function getCompetencyDetail(CompetencyName) {
-
-
-
-    }
-
-    function createXHRRequest() {
-
-
     }
 
 
