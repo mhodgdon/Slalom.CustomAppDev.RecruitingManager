@@ -21,6 +21,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.Web
             AngularSetup(bundles);
             CandidateController(bundles);
             HammerSetup(bundles);
+            ModalViewController(bundles);
         }
 
         private static void angularSetup(BundleCollection bundles)
@@ -90,6 +91,12 @@ namespace Slalom.CustomAppDev.RecruitingManager.Web
         private static void CandidateController(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/CandidateControl").Include("~/Scripts/CompetencyAreas/CandidateController.js"));
+        }
+
+        private static void ModalViewController(BundleCollection bundles)
+        {
+
+            bundles.Add(new ScriptBundle("~/bundles/ModalViewControl").Include("~/Scripts/CompetencyAreas/ModalViewController.js"));
         }
 
         private static void HammerSetup(BundleCollection bundles)

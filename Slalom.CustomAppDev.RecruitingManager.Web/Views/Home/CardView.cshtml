@@ -4,19 +4,13 @@
 
  <script type="text/javascript">
 
-     function newURL(id) {
-
-         $('#modalView').show(5000);
-         alert(id);
-     
-     }
   
   </script>
 
 <section class="card">            
       
-            <div class="span4" onclick="newURL({{$index + 1}})">
-                <div class="cardContent">
+            <div class="span4">
+                <div class="cardContent" ng-click="getSelectedCard($index)">
               
                     <strong>{{competency.CompetencyName}}</strong><br />
                     <span>{{competency.Description}}</span><br /><br />
@@ -28,6 +22,10 @@
                </div>
             </div>
  
+            
+             
+             
+           
 
 
 </section>

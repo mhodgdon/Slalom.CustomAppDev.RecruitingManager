@@ -22,7 +22,7 @@
 
           $("#accordion").accordion({
               collapsible: true,
-              active: false
+              active: false,
           });
 
       });
@@ -87,27 +87,10 @@
      
           </div>
                 
-     </div>      
-     
-     </div> 
-
-
-                 
- 
- 
-
-           
-        <div id="accordion">
-        
-            <div class="headerContainer"><h3>Candidate Overview</h3></div>
+  
+      
                 
-                
-                <div class="contentContainer">
-                   
-             
-          
-              
-              <div id="selectedCandidate">
+           <div id="selectedCandidate">
               
 
                 <div class="title"><h4>Candidate Information</h4></div>
@@ -127,21 +110,27 @@
                 </div>
              
             
+   </div>  
 
-             </div>
-          
-              
+
+                 
         </div>
+   
+   
+ </div>
+   
 
- 
-        <!--Add iterator for the accordion items -->
            
-         
+  
+        
+        
+       <div id="accordion" ng-controller="CompetencyHelperCntrl">
+  
             @foreach (CompetencyArea area in Model.CompetencyAreas)
             { 
                  
                 <div class="headerContainer"><h3>@area.ToString()</h3></div>
-                <div class="contentContainer" ng-controller="@CardViewHelpers.GetAngularController(area)">
+                <div class="contentContainer">
                     <div class="row">
                   
                     <div ng-repeat="competency in competencies">
@@ -150,20 +139,29 @@
                            </div>
                 </div>
             }
-             </div>
 
-
-
-         <div id="modalView">
-             <button class="modalBtn" onclick="hideModal()">Hide Modal</button>
              
-             <p>Add some test content here</p>
              
-             </div>
+           <div id="modalView">
+        <button class="modalBtn" onclick="hideModal()">Hide Modal</button>
+         
+
+                      <strong ng-model="currentCard">{{selectedCard.CompetencyName}}</strong><br />
+                    <span ng-model="currentCard">{{selectedCard.Description}}</span><br /><br />
+                    <div class="interviewedAlready">
+                        <strong ng-model="currentCard">{{selectedCard.History}}</strong> <br />
+                        <span ng-model="currentCard">Level: {{selectedCard.Level}}</span> <br />
+                        <span ng-model="currentCard">Interviewed By: {{selectedCard.InterviewedBy}}</span>
+              
+             
+            </div>
           
        
-            
+            </div> 
+       </div>
 
+
+       
     </section>
             }
 

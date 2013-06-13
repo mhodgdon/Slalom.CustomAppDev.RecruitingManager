@@ -25,11 +25,11 @@ var selectCandidateCntrl = function($scope) {
 var swipeTapped = function () {
        
     var currentHeight = $('#candidateCreator').css("height");
-    if (currentHeight == '200px') {
+    if (currentHeight == '400px') {
         candidateSelectFormHeight = '75px';
     }
     else {
-        candidateSelectFormHeight = '200px';
+        candidateSelectFormHeight = '400px';
 
     }
 
