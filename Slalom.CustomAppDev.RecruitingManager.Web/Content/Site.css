@@ -137,17 +137,63 @@ h4
 
 
 #modalView { /* The actual box, centered in the fixed-position div */
-    width:40%;
-    height: 40%;
+    width:100%;
+    height: 100%;
+    top: 0%;
     position:fixed;
-    top: 20%;
-    margin-left: 30%;
+    z-index: 1000;
+}
+
+.modalContent
+{
+   /* height: 50%; */
+    width: 50%;
+    margin-top: 10%;
+    margin-left: 20%;
     background-color:white;
     padding:10px;
     border:1px solid black;
+
 }
+
 
 .modalBtn
 {
- float: right;   
+float: right;
+width: 45%; 
+height: 10%;  
+}
+
+.submitCandidateNotes
+{
+    float: left;
+    width: 45%;
+    height: 10%;
+}
+
+.currentInterview
+{
+ margin-top: 5%;   
+}
+
+.currentInterview textarea
+{
+ height: 40%;
+ width: 90%;   
+}
+.modalContent strong
+{
+ border-bottom: 1px double black;   
+ width: 90%;
+ 
+}
+
+.modalContent select
+{
+ width: 70%;   
+}
+
+.interviewHistory
+{
+    width: 100%;
 }

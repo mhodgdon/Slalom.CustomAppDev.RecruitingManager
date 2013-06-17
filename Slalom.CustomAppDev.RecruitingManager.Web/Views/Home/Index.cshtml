@@ -143,17 +143,58 @@
              
              
            <div id="modalView">
-        <button class="modalBtn" onclick="hideModal()">Hide Modal</button>
+       
+                <div class="modalContent">
+                    
+                   
          
-
-                      <strong ng-model="currentCard">{{selectedCard.CompetencyName}}</strong><br />
-                    <span ng-model="currentCard">{{selectedCard.Description}}</span><br /><br />
-                    <div class="interviewedAlready">
-                        <strong ng-model="currentCard">{{selectedCard.History}}</strong> <br />
-                        <span ng-model="currentCard">Level: {{selectedCard.Level}}</span> <br />
-                        <span ng-model="currentCard">Interviewed By: {{selectedCard.InterviewedBy}}</span>
-              
+                  
+                    <strong>{{selectedCard.CompetencyName}}</strong> <br /><br />
+                    <p>Competency Description: {{selectedCard.Description}}</p>
              
+                <div class="currentInterview">
+                   <strong>Competency Feedback</strong><br /><br />
+                 <span>Candidate Level: </span>   <select>
+                    <option>No Knowledge</option>
+                    <option>Apprentice</option>
+                    <option>Master</option>
+                    </select><br />
+                    
+                    <span>Notes: </span><textarea maxChars="255"></textarea>
+             
+                </div>
+             
+             <strong>Interview History</strong>
+             <div class="interviewedAlready">
+                    
+                    <div class="row">
+                    <div class="span3">
+                        <p>Interviewed By: </p>
+                         <ul>
+                            <li ng-repeat="interviewers in selectedCard.InterviewedBy">{{interviewers}}</li>                  
+                         </ul>
+                    
+                    </div>
+
+                    <div class="span3">
+                    <p>Level</p>
+                    <p>{{selectedCard.Level}}</p>
+                    </div>
+
+                    <div class="span3">
+                    <p>Comments</p>
+                    <p>{{selectedCard.Notes}}</p>
+                    
+                    </div>
+                    
+                    </div>
+                      
+                    
+              </div><br />
+
+              <button class="submitCandidateNotes" onclick="hideModal()">Submit</button>
+              <button class="modalBtn" onclick="hideModal()">Cancel</button><br /><br />
+
             </div>
           
        
