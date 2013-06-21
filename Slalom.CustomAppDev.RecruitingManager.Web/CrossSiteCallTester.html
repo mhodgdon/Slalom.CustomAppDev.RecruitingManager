@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-1.7.1.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script type="text/javascript">
+
+        $.ajax({
+            type: "GET",
+            url: "http://ec2-54-214-149-243.us-west-2.compute.amazonaws.com/RMAPI/Resources/Competency/2",
+            cache: false,
+            async: false
+        }).done(function(result) {
+          alert(result);
+        });
+
+    </script>
+</head>
+<body>
+
+    
+</body>
+</html>

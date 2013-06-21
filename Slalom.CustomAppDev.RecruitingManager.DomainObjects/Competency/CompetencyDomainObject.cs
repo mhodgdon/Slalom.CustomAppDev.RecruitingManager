@@ -15,13 +15,5 @@ namespace Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency
         public string ReviewCategory { get; set; }
 
         public string CompetencyDescription { get; set; }
-
-        public ExperienceLevel Level { get; set; }
-
-        public string Notes { get; set; }
-
-        public string AppendToNotes { get; set; }
-
-        public bool AnInterviewerProvidedFeedback { get; set; }
     }
 }

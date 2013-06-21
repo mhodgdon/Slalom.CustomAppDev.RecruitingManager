@@ -14,6 +14,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
         #region Fields
 
         ICandidateDataRepository candidateRepository;
+        ICompetencyDataRepository competencyRepository;
 
         #endregion
 
@@ -22,11 +23,13 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
         public CandidateController() 
         {
             candidateRepository = new CandidateDataRepository();
+            competencyRepository = new CompetencyDataRepository();
         }
 
-        public CandidateController(ICandidateDataRepository candidateRepository)
+        public CandidateController(ICandidateDataRepository candidateRepository, ICompetencyDataRepository competencyRepository)
         {
             this.candidateRepository = candidateRepository;
+            this.competencyRepository = competencyRepository;
         }
 
         #endregion
@@ -48,6 +51,12 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
         /// </summary>
         public CandidateDomainObject Get(int id)
         {
+            return null;
+            
+            CandidateDomainObject candidate = candidateRepository.RetrieveCandidate(id);
+
+            candidate.CompetencyFeedback = competencyRepository.RetrieveCompetency(id);
+
             return candidateRepository.RetrieveCandidate(id);
         }
 

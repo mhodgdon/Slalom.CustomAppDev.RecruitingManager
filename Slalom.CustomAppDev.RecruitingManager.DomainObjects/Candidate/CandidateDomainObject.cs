@@ -22,6 +22,12 @@ namespace Slalom.CustomAppDev.RecruitingManager.DomainObjects.Candidate
             get { return string.Format("{0} {1}", FirstName, LastName);  }
         }
 
+        public List<Competency.CompetencyDomainObject> CompetencyFeedback
+        {
+            get;
+            set;
+        }
+
         public Nullable<bool> InterviewComplete { get; set; }
 
         public Nullable<bool> HireCandidate { get; set; }

@@ -9,6 +9,8 @@ namespace Slalom.CustomAppDev.RecruitingManager.DomainObjects.Candidate
 {
     public class CandidateFeedbackDomainObject
     {
+        public int Id { get; set; }
+
         public CompetencyArea Specialization { get; set; }
 
         public ConsultingRole SuggestedConsultingRole { get; set; }

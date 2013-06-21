@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -44,26 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecruitingManagerModel.Designer.cs">
+    <Compile Include="RecruitingManagerModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RecruitingManagerModel.edmx</DependentUpon>
+      <DependentUpon>RecruitingManagerModels.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Slalom.CustomAppDev.RecruitingManager.Commons\Slalom.CustomAppDev.RecruitingManager.Commons.csproj">
-      <Project>{42140D64-8C37-40F7-B150-03BDDF906A06}</Project>
-      <Name>Slalom.CustomAppDev.RecruitingManager.Commons</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="RecruitingManagerModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RecruitingManagerModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="RecruitingManagerModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RecruitingManagerModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

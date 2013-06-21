@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Slalom.CustomAppDev.RecruitingManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SlalomCustomAppDevRecruitingManagerModelStoreContainer">
+          <EntitySet Name="Candidate" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Store.Candidate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CandidateFeedback" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Store.CandidateFeedback" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Competency" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Store.Competency" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CompetencyFeedback" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Store.CompetencyFeedback" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Interviewer" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Store.Interviewer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InterviewSession" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Store.InterviewSession" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CandidateFeedback_Candidate" Association="Slalom.CustomAppDev.RecruitingManagerModel.Store.FK_CandidateFeedback_Candidate">
+            <End Role="Candidate" EntitySet="Candidate" />
+            <End Role="CandidateFeedback" EntitySet="CandidateFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CandidateFeedback_CandidateFeedback" Association="Slalom.CustomAppDev.RecruitingManagerModel.Store.FK_CandidateFeedback_CandidateFeedback">
+            <End Role="CandidateFeedback" EntitySet="CandidateFeedback" />
+            <End Role="CandidateFeedback1" EntitySet="CandidateFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CandidateFeedback_Interviewer" Association="Slalom.CustomAppDev.RecruitingManagerModel.Store.FK_CandidateFeedback_Interviewer">
+            <End Role="Interviewer" EntitySet="Interviewer" />
+            <End Role="CandidateFeedback" EntitySet="CandidateFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyFeedback_Candidate" Association="Slalom.CustomAppDev.RecruitingManagerModel.Store.FK_CompetencyFeedback_Candidate">
+            <End Role="Candidate" EntitySet="Candidate" />
+            <End Role="CompetencyFeedback" EntitySet="CompetencyFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyFeedback_Competency" Association="Slalom.CustomAppDev.RecruitingManagerModel.Store.FK_CompetencyFeedback_Competency">
+            <End Role="Competency" EntitySet="Competency" />
+            <End Role="CompetencyFeedback" EntitySet="CompetencyFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyFeedback_Interviewer" Association="Slalom.CustomAppDev.RecruitingManagerModel.Store.FK_CompetencyFeedback_Interviewer">
+            <End Role="Interviewer" EntitySet="Interviewer" />
+            <End Role="CompetencyFeedback" EntitySet="CompetencyFeedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterviewSession_Candidate" Association="Slalom.CustomAppDev.RecruitingManagerModel.Store.FK_InterviewSession_Candidate">
+            <End Role="Candidate" EntitySet="Candidate" />
+            <End Role="InterviewSession" EntitySet="InterviewSession" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterviewSession_Interviewer" Association="Slalom.CustomAppDev.RecruitingManagerModel.Store.FK_InterviewSession_Interviewer">
+            <End Role="Interviewer" EntitySet="Interviewer" />
+            <End Role="InterviewSession" EntitySet="InterviewSession" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Candidate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResumeAddress" Type="nvarchar" MaxLength="512" />
+          <Property Name="InterviewComplete" Type="bit" />
+          <Property Name="HireCandidate" Type="bit" />
+        </EntityType>
+        <EntityType Name="CandidateFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+          <Property Name="InterviewerId" Type="int" />
+          <Property Name="Specialization" Type="int" Nullable="false" />
+          <Property Name="SuggestedConsultingRole" Type="int" Nullable="false" />
+          <Property Name="SuggestedExperienceLevel" Type="int" Nullable="false" />
+          <Property Name="Hire" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Competency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CompetencyArea" Type="int" Nullable="false" />
+          <Property Name="ReviewCategory" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CompetencyDescription" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CompetencyFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+          <Property Name="InterviewerId" Type="int" />
+          <Property Name="CompetencyId" Type="int" Nullable="false" />
+          <Property Name="CompetencyLevel" Type="int" />
+          <Property Name="Note" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Interviewer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="InterviewSession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="InterviewerId" Type="int" Nullable="false" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+          <Property Name="Started" Type="datetime" Nullable="false" />
+          <Property Name="Completed" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_CandidateFeedback_Candidate">
+          <End Role="Candidate" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.Candidate" Multiplicity="1" />
+          <End Role="CandidateFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.CandidateFeedback" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CandidateFeedback">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CandidateFeedback_CandidateFeedback">
+          <End Role="CandidateFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.CandidateFeedback" Multiplicity="1" />
+          <End Role="CandidateFeedback1" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.CandidateFeedback" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CandidateFeedback">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CandidateFeedback1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CandidateFeedback_Interviewer">
+          <End Role="Interviewer" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.Interviewer" Multiplicity="0..1" />
+          <End Role="CandidateFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.CandidateFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interviewer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CandidateFeedback">
+              <PropertyRef Name="InterviewerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyFeedback_Candidate">
+          <End Role="Candidate" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.Candidate" Multiplicity="1" />
+          <End Role="CompetencyFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.CompetencyFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyFeedback">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyFeedback_Competency">
+          <End Role="Competency" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.Competency" Multiplicity="1" />
+          <End Role="CompetencyFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.CompetencyFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyFeedback">
+              <PropertyRef Name="CompetencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyFeedback_Interviewer">
+          <End Role="Interviewer" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.Interviewer" Multiplicity="0..1" />
+          <End Role="CompetencyFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.CompetencyFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interviewer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyFeedback">
+              <PropertyRef Name="InterviewerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterviewSession_Candidate">
+          <End Role="Candidate" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.Candidate" Multiplicity="1" />
+          <End Role="InterviewSession" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.InterviewSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InterviewSession">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterviewSession_Interviewer">
+          <End Role="Interviewer" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.Interviewer" Multiplicity="1" />
+          <End Role="InterviewSession" Type="Slalom.CustomAppDev.RecruitingManagerModel.Store.InterviewSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interviewer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InterviewSession">
+              <PropertyRef Name="InterviewerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Slalom.CustomAppDev.RecruitingManagerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="RecruitingManagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Candidates" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Candidate" />
+          <EntitySet Name="CandidateFeedbacks" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.CandidateFeedback" />
+          <EntitySet Name="Competencies" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Competency" />
+          <EntitySet Name="CompetencyFeedbacks" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.CompetencyFeedback" />
+          <EntitySet Name="Interviewers" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Interviewer" />
+          <EntitySet Name="InterviewSessions" EntityType="Slalom.CustomAppDev.RecruitingManagerModel.InterviewSession" />
+          <AssociationSet Name="FK_CandidateFeedback_Candidate" Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_Candidate">
+            <End Role="Candidate" EntitySet="Candidates" />
+            <End Role="CandidateFeedback" EntitySet="CandidateFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyFeedback_Candidate" Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Candidate">
+            <End Role="Candidate" EntitySet="Candidates" />
+            <End Role="CompetencyFeedback" EntitySet="CompetencyFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterviewSession_Candidate" Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_InterviewSession_Candidate">
+            <End Role="Candidate" EntitySet="Candidates" />
+            <End Role="InterviewSession" EntitySet="InterviewSessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CandidateFeedback_CandidateFeedback" Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_CandidateFeedback">
+            <End Role="CandidateFeedback" EntitySet="CandidateFeedbacks" />
+            <End Role="CandidateFeedback1" EntitySet="CandidateFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CandidateFeedback_Interviewer" Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_Interviewer">
+            <End Role="Interviewer" EntitySet="Interviewers" />
+            <End Role="CandidateFeedback" EntitySet="CandidateFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyFeedback_Competency" Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Competency">
+            <End Role="Competency" EntitySet="Competencies" />
+            <End Role="CompetencyFeedback" EntitySet="CompetencyFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyFeedback_Interviewer" Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Interviewer">
+            <End Role="Interviewer" EntitySet="Interviewers" />
+            <End Role="CompetencyFeedback" EntitySet="CompetencyFeedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterviewSession_Interviewer" Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_InterviewSession_Interviewer">
+            <End Role="Interviewer" EntitySet="Interviewers" />
+            <End Role="InterviewSession" EntitySet="InterviewSessions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Candidate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ResumeAddress" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="InterviewComplete" Type="Boolean" />
+          <Property Name="HireCandidate" Type="Boolean" />
+          <NavigationProperty Name="CandidateFeedback" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_Candidate" FromRole="Candidate" ToRole="CandidateFeedback" />
+          <NavigationProperty Name="CompetencyFeedbacks" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Candidate" FromRole="Candidate" ToRole="CompetencyFeedback" />
+          <NavigationProperty Name="InterviewSessions" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_InterviewSession_Candidate" FromRole="Candidate" ToRole="InterviewSession" />
+        </EntityType>
+        <EntityType Name="CandidateFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <Property Name="InterviewerId" Type="Int32" />
+          <Property Name="Specialization" Type="Int32" Nullable="false" />
+          <Property Name="SuggestedConsultingRole" Type="Int32" Nullable="false" />
+          <Property Name="SuggestedExperienceLevel" Type="Int32" Nullable="false" />
+          <Property Name="Hire" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Candidate" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_Candidate" FromRole="CandidateFeedback" ToRole="Candidate" />
+          <NavigationProperty Name="CandidateFeedback1" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_CandidateFeedback" FromRole="CandidateFeedback" ToRole="CandidateFeedback1" />
+          <NavigationProperty Name="CandidateFeedback2" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_CandidateFeedback" FromRole="CandidateFeedback1" ToRole="CandidateFeedback" />
+          <NavigationProperty Name="Interviewer" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_Interviewer" FromRole="CandidateFeedback" ToRole="Interviewer" />
+        </EntityType>
+        <EntityType Name="Competency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompetencyArea" Type="Int32" Nullable="false" />
+          <Property Name="ReviewCategory" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CompetencyDescription" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CompetencyFeedbacks" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Competency" FromRole="Competency" ToRole="CompetencyFeedback" />
+        </EntityType>
+        <EntityType Name="CompetencyFeedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <Property Name="InterviewerId" Type="Int32" />
+          <Property Name="CompetencyId" Type="Int32" Nullable="false" />
+          <Property Name="CompetencyLevel" Type="Int32" />
+          <Property Name="Note" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Candidate" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Candidate" FromRole="CompetencyFeedback" ToRole="Candidate" />
+          <NavigationProperty Name="Competency" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Competency" FromRole="CompetencyFeedback" ToRole="Competency" />
+          <NavigationProperty Name="Interviewer" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Interviewer" FromRole="CompetencyFeedback" ToRole="Interviewer" />
+        </EntityType>
+        <EntityType Name="Interviewer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CandidateFeedbacks" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_Interviewer" FromRole="Interviewer" ToRole="CandidateFeedback" />
+          <NavigationProperty Name="CompetencyFeedbacks" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Interviewer" FromRole="Interviewer" ToRole="CompetencyFeedback" />
+          <NavigationProperty Name="InterviewSessions" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_InterviewSession_Interviewer" FromRole="Interviewer" ToRole="InterviewSession" />
+        </EntityType>
+        <EntityType Name="InterviewSession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="InterviewerId" Type="Int32" Nullable="false" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <Property Name="Started" Type="DateTime" Nullable="false" />
+          <Property Name="Completed" Type="DateTime" />
+          <NavigationProperty Name="Candidate" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_InterviewSession_Candidate" FromRole="InterviewSession" ToRole="Candidate" />
+          <NavigationProperty Name="Interviewer" Relationship="Slalom.CustomAppDev.RecruitingManagerModel.FK_InterviewSession_Interviewer" FromRole="InterviewSession" ToRole="Interviewer" />
+        </EntityType>
+        <Association Name="FK_CandidateFeedback_Candidate">
+          <End Role="Candidate" Type="Slalom.CustomAppDev.RecruitingManagerModel.Candidate" Multiplicity="1" />
+          <End Role="CandidateFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.CandidateFeedback" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CandidateFeedback">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyFeedback_Candidate">
+          <End Role="Candidate" Type="Slalom.CustomAppDev.RecruitingManagerModel.Candidate" Multiplicity="1" />
+          <End Role="CompetencyFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.CompetencyFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyFeedback">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterviewSession_Candidate">
+          <End Role="Candidate" Type="Slalom.CustomAppDev.RecruitingManagerModel.Candidate" Multiplicity="1" />
+          <End Role="InterviewSession" Type="Slalom.CustomAppDev.RecruitingManagerModel.InterviewSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InterviewSession">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CandidateFeedback_CandidateFeedback">
+          <End Role="CandidateFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.CandidateFeedback" Multiplicity="1" />
+          <End Role="CandidateFeedback1" Type="Slalom.CustomAppDev.RecruitingManagerModel.CandidateFeedback" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CandidateFeedback">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CandidateFeedback1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CandidateFeedback_Interviewer">
+          <End Role="Interviewer" Type="Slalom.CustomAppDev.RecruitingManagerModel.Interviewer" Multiplicity="0..1" />
+          <End Role="CandidateFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.CandidateFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interviewer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CandidateFeedback">
+              <PropertyRef Name="InterviewerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyFeedback_Competency">
+          <End Role="Competency" Type="Slalom.CustomAppDev.RecruitingManagerModel.Competency" Multiplicity="1" />
+          <End Role="CompetencyFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.CompetencyFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyFeedback">
+              <PropertyRef Name="CompetencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyFeedback_Interviewer">
+          <End Role="Interviewer" Type="Slalom.CustomAppDev.RecruitingManagerModel.Interviewer" Multiplicity="0..1" />
+          <End Role="CompetencyFeedback" Type="Slalom.CustomAppDev.RecruitingManagerModel.CompetencyFeedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interviewer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CompetencyFeedback">
+              <PropertyRef Name="InterviewerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterviewSession_Interviewer">
+          <End Role="Interviewer" Type="Slalom.CustomAppDev.RecruitingManagerModel.Interviewer" Multiplicity="1" />
+          <End Role="InterviewSession" Type="Slalom.CustomAppDev.RecruitingManagerModel.InterviewSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interviewer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InterviewSession">
+              <PropertyRef Name="InterviewerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SlalomCustomAppDevRecruitingManagerModelStoreContainer" CdmEntityContainer="RecruitingManagerEntities">
+          <EntitySetMapping Name="Candidates">
+            <EntityTypeMapping TypeName="Slalom.CustomAppDev.RecruitingManagerModel.Candidate">
+              <MappingFragment StoreEntitySet="Candidate">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="ResumeAddress" ColumnName="ResumeAddress" />
+                <ScalarProperty Name="InterviewComplete" ColumnName="InterviewComplete" />
+                <ScalarProperty Name="HireCandidate" ColumnName="HireCandidate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CandidateFeedbacks">
+            <EntityTypeMapping TypeName="Slalom.CustomAppDev.RecruitingManagerModel.CandidateFeedback">
+              <MappingFragment StoreEntitySet="CandidateFeedback">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="InterviewerId" ColumnName="InterviewerId" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="SuggestedConsultingRole" ColumnName="SuggestedConsultingRole" />
+                <ScalarProperty Name="SuggestedExperienceLevel" ColumnName="SuggestedExperienceLevel" />
+                <ScalarProperty Name="Hire" ColumnName="Hire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Competencies">
+            <EntityTypeMapping TypeName="Slalom.CustomAppDev.RecruitingManagerModel.Competency">
+              <MappingFragment StoreEntitySet="Competency">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompetencyArea" ColumnName="CompetencyArea" />
+                <ScalarProperty Name="ReviewCategory" ColumnName="ReviewCategory" />
+                <ScalarProperty Name="CompetencyDescription" ColumnName="CompetencyDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetencyFeedbacks">
+            <EntityTypeMapping TypeName="Slalom.CustomAppDev.RecruitingManagerModel.CompetencyFeedback">
+              <MappingFragment StoreEntitySet="CompetencyFeedback">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="InterviewerId" ColumnName="InterviewerId" />
+                <ScalarProperty Name="CompetencyId" ColumnName="CompetencyId" />
+                <ScalarProperty Name="CompetencyLevel" ColumnName="CompetencyLevel" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interviewers">
+            <EntityTypeMapping TypeName="Slalom.CustomAppDev.RecruitingManagerModel.Interviewer">
+              <MappingFragment StoreEntitySet="Interviewer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterviewSessions">
+            <EntityTypeMapping TypeName="Slalom.CustomAppDev.RecruitingManagerModel.InterviewSession">
+              <MappingFragment StoreEntitySet="InterviewSession">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InterviewerId" ColumnName="InterviewerId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="Started" ColumnName="Started" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RecruitingManagerModels">
+        <EntityTypeShape EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Candidate" Width="1.5" PointX="0.75" PointY="4.75" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Slalom.CustomAppDev.RecruitingManagerModel.CandidateFeedback" Width="1.5" PointX="3" PointY="4.625" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Competency" Width="1.5" PointX="3.75" PointY="9.125" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Slalom.CustomAppDev.RecruitingManagerModel.CompetencyFeedback" Width="1.5" PointX="6" PointY="4.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Slalom.CustomAppDev.RecruitingManagerModel.Interviewer" Width="1.5" PointX="0.75" PointY="1" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Slalom.CustomAppDev.RecruitingManagerModel.InterviewSession" Width="1.5" PointX="3" PointY="1" Height="2.3648893229166674" IsExpanded="true" />
+        <AssociationConnector Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_Candidate" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.2208968098958337" />
+          <ConnectorPoint PointX="3" PointY="6.2208968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Candidate" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="7.6917936197916674" />
+          <ConnectorPoint PointX="1.5" PointY="7.9417936197916674" />
+          <ConnectorPoint PointX="3.4485897435897432" PointY="7.9417936197916665" />
+          <ConnectorPoint PointX="3.61525641025641" PointY="7.9417936197916674" />
+          <ConnectorPoint PointX="3.8951282051282048" PointY="7.9417936197916665" />
+          <ConnectorPoint PointX="4.0617948717948718" PointY="7.9417936197916674" />
+          <ConnectorPoint PointX="5.625" PointY="7.9417936197916674" />
+          <ConnectorPoint PointX="5.625" PointY="6.12474609375" />
+          <ConnectorPoint PointX="6" PointY="6.12474609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_InterviewSession_Candidate" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.75" />
+          <ConnectorPoint PointX="2.625" PointY="4.375" />
+          <ConnectorPoint PointX="2.625" PointY="2.1824446614583337" />
+          <ConnectorPoint PointX="3" PointY="2.1824446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_CandidateFeedback" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.5319230769230767" PointY="7.7590950520833317" />
+          <ConnectorPoint PointX="3.5319230769230767" PointY="8.2590950520833317" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="8.2590950520833317" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="7.7590950520833317" />
+        </AssociationConnector>
+        <AssociationConnector Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CandidateFeedback_Interviewer" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.2257692307692305" PointY="3.3648893229166674" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="3.7051945270485573" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="3.8230456572463161" />
+          <ConnectorPoint PointX="2.8125" PointY="3.9516200921474369" />
+          <ConnectorPoint PointX="2.8125" PointY="5.3916964049479166" />
+          <ConnectorPoint PointX="3" PointY="5.3916964049479166" />
+        </AssociationConnector>
+        <AssociationConnector Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Competency" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="10.115143229166666" />
+          <ConnectorPoint PointX="6.75" PointY="10.115143229166666" />
+          <ConnectorPoint PointX="6.75" PointY="7.4994921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_CompetencyFeedback_Interviewer" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.3395037075320517" />
+          <ConnectorPoint PointX="2.6503856153846157" PointY="3.7398893229166674" />
+          <ConnectorPoint PointX="6.75" PointY="3.7398893229166674" />
+          <ConnectorPoint PointX="6.75" PointY="4.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="Slalom.CustomAppDev.RecruitingManagerModel.FK_InterviewSession_Interviewer" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.5287223307291669" />
+          <ConnectorPoint PointX="3" PointY="1.5287223307291669" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

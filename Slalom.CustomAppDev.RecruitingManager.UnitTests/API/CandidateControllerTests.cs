@@ -17,6 +17,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.UnitTests.API
         
         private CandidateController candidateController;
         private Mock<ICandidateDataRepository> mockedCandidatedDataRepository;
+        private Mock<ICompetencyDataRepository> mockedCompetencyDataRepository;
         private List<CandidateDomainObject> manyCandidates;
         private List<CandidateDomainObject> nullCandidates;
         private List<CandidateDomainObject> emptyCandidate;
@@ -30,7 +31,8 @@ namespace Slalom.CustomAppDev.RecruitingManager.UnitTests.API
         public void Setup()
         {
             mockedCandidatedDataRepository = new Mock<ICandidateDataRepository>();
-            candidateController = new CandidateController(mockedCandidatedDataRepository.Object);
+            mockedCompetencyDataRepository = new Mock<ICompetencyDataRepository>();
+            candidateController = new CandidateController(mockedCandidatedDataRepository.Object, mockedCompetencyDataRepository.Object);
 
             candidateObject = new CandidateDomainObject()
             {

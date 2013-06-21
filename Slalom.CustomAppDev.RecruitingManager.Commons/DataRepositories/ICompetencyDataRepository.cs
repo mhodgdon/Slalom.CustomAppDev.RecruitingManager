@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency;
 
 namespace Slalom.CustomAppDev.RecruitingManager.Commons.DataRepositories
 {
     public interface ICompetencyDataRepository
     {
-        void RetrieveCompetency(int id, DomainObjects.Competency.CompetencyArea area);
+        List<CompetencyDomainObject> RetrieveCompetencyList(DomainObjects.Competency.CompetencyArea area);
 
-        void UpdateCompetency(int id, DomainObjects.Competency.CompetencyDomainObject UpdateCompetency);
+        List<CompetencyDomainObject> RetrieveCompetency(int id);
     }
 }

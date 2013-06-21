@@ -37,24 +37,11 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
         /// for a candidate specified by the Id
         /// Optionally you can filter by 'Area'
         /// </summary>
-        public IEnumerable<CompetencyDomainObject> Get(int id, int filter)
+        public IEnumerable<CompetencyDomainObject> Get(int filter)
         {
             CompetencyArea area = (CompetencyArea)filter;
 
-            competencyRepository.RetrieveCompetency(id, area);
-
-            var competencyDOquery = new List<CompetencyDomainObject>()
-            {
-                new CompetencyDomainObject() { Id = id},
-                new CompetencyDomainObject() {}
-            }.AsQueryable();
-
-            if (area == CompetencyArea.UnSelected)
-            {
-                return competencyDOquery.ToList();
-            }
-
-            return competencyDOquery.Select(item => item).Where(item => item.Area == area);
+            return competencyRepository.RetrieveCompetencyList(area);
         }
 
         /// <summary>
@@ -63,7 +50,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.API.Controllers
         /// </summary>
         public void Post([FromBody]CompetencyDomainObject UpdateCompetency, int id)
         {
-            competencyRepository.UpdateCompetency(id, UpdateCompetency);
+            //competencyRepository.UpdateCompetency(id, UpdateCompetency);
         }
 
         #endregion
