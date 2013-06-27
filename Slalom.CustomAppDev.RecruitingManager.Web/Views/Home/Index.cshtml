@@ -13,9 +13,10 @@
 
   <script type="text/javascript">
       $(function () {
-
+           $('.rightImage').hide();
        
           $('#modalView').hide();
+          $('#addCandidateModal').hide();
 
           $('#formContainer').hide();
 
@@ -42,89 +43,161 @@
           $('#modalView').hide();
 
       }
+
+      function hideAddCandidateModal() {
+       $('#addCandidateModal').hide();
       
+
+      }
+
+      function launchAddCandidateModal() {
+     
+
+     $('#addCandidateModal').show(5000);
+      }
+      
+
+      function showLeftPanel()
+      {
+       var flag =$('#leftPanel').is(':visible');  
+  
+       if(flag == false)
+       {
+       $('#leftPanel').show(500);
+       $("#rightPanel").css("width", "79%");
+       $('.leftImage').show();
+       $('.rightImage').hide();
+       }
+       else
+       {
+        $('#leftPanel').hide(500);
+        $("#rightPanel").css("width", "100%");
+         $('.leftImage').hide();
+          $('.rightImage').show();
+       
+       
+       }
+     
+      }
 
     
 
   </script>
 
-    <section class="featured" ng-controller="selectCandidateCntrl">
+    
+ <section class="featured" ng-controller="selectCandidateCntrl">
 
 
- <div id="candidateCreator">
 
 
 
-                 
-    <div id="swipeUp" onclick="swipeTapped()">
-        <table><tr><td><h3>Select Candidate</h3></td><td ng-model="selectedCandidate">Selected Candidate: {{selectedCandidate.name}}</td></tr></table>
-         </div>
+    <div id="leftPanel">
+    
+    <div class="chooseCandidate">   
+    <h4>Select Candidate</h4>
+
+    <select ng-model="selectedCandidate" ng-options="c.name for c in candidates"></select> <br />
+    </div>
+
+    
+    <button class="button" onclick="launchAddCandidateModal()">Add Candidate</button> 
+    
+    <div class="border"></div>
    
-
-<div id="formContainer">
-   <div class="row">
-          
-          <div class="span9">
-          <h5>Create Candidate</h5>
-         
-
-         <form ng-submit="addCandidates()">
-         <span>Name: </span><input type="text" ng-model="candidateName" /><input class="submitButton" type="submit" value="add"></input>
-         </form>
-          
-          </div>
-          
-          
-          <div class="span9" >
-          <h5>Select a Candidate</h5>
-               
-            <select ng-model="selectedCandidate" ng-options="c.name for c in candidates">
-          
-            </select>
-               
-           </div>   
-     
-     
-          </div>
-                
+    
+    
+    
+    <div class="overview">
+    <h4>Candidate Overview</h4> 
+    
+    <div class="candidateInformation">
+    <strong>Name: </strong> {{selectedCandidate.name}}</span> <br />
+    <strong>Number of Times Interviewed: </strong><span ng-model="selectedCandidate">{{selectedCandidate.timesInterviewed}}</span> <br />
+    <span><strong>Interviewed By: </strong></span>
+    <ul>
+     <li ng-repeat="interviewedBy in selectedCandidate.interviewedBy">{{selectedCandidate.interviewedBy[$index]}}</li>
+    </ul>
+    </div>              
+   
   
-      
-                
-           <div id="selectedCandidate">
+  
+    </div>
+    
+     <div class="border"></div>
+
+
+     <div class="interviewFeedback">  
+    <h4>Interview Feedback</h4>
+                  
+    <div ng-repeat="interviewInformation in selectedCandidate.interviewedBy" class="chatWindow">
+    <span ng-model="selectedCandidate">{{selectedCandidate.interviewedBy[$index]}} Says: </span>
+    <span ng-model="selectedCandidate">{{selectedCandidate.Notes[$index]}}</span>
+    
+    </div>
               
+    </div>
 
-                <div class="title"><h4>Candidate Information</h4></div>
-             
-                <div class="row">
-                    <div class="span2">
-                    <img src="../../Images/BrendanPic.png" alt="" />
-                    </div>
-
-                    <div class="span12">
-                    <strong>Name: </strong> <span ng-model="selectedCandidate">{{selectedCandidate.name}}</span> <br />
-                    <strong>Number of Times Interviewed: </strong><span ng-model="selectedCandidate">{{selectedCandidate.interviewedBy}}</span> <br />
-                    <strong>Interviewed By: </strong><span ng-model="selectedCandidate">{{selectedCandidate.timesInterviewed}}</span> <br />
-                    <strong>Notes: </strong><span class="notes" ng-model="selectedCandidate">{{selectedCandidate.Notes}}</span>
-                    </div>
-               
-                </div>
-             
-            
-   </div>  
-
-
-                 
-        </div>
+    <div class="border"></div>
+    
+      <div id="addNotes">
+    <h4>Add Feedback</h4>
    
-   
- </div>
-   
+   <form>
+    <textarea rows="4"></textarea>
+    <button class="button">Submit</button>
+   </form>
+    </div>
 
-           
+
+    </div>
+
   
+
+
+
+     <div id="addCandidateModal">
+             
+              <div class="modalContent">
+                 <form ng-submit="addCandidates()">
+                 <strong>Add Candidate</strong> <br /><br />
+                    <span>First Name: </span><input type="text" ng-model="candidateName" />
+                    <span>Last Name: </span><input type="text" /> <br />
+                 <div class="buttons">   
+                    <input class="modalButton" type="submit" value="add" />&nbsp&nbsp
+                </div>
+                </form>
+                <input class="cancelButton" type="submit" onclick="hideAddCandidateModal()" value="Cancel" />
+                
+
+               </div>
+         
         
-        
-       <div id="accordion" ng-controller="CompetencyHelperCntrl">
+            
+           
+   </div>
+
+
+
+   <div  id="rightPanel">
+   
+   <div id="rightPanelHeader">
+ 
+  <table>
+  <tr>
+  <td>
+   <div class="showLeftPanel" onclick="showLeftPanel()">
+   <img class="leftImage" src="../../Images/leftArrow.jpg" />
+   <img class="rightImage" src="../../Images/rightArrow.jpg" />
+   </div>
+  </td>
+  <td>
+   <img src="http://localhost:57211/Images/SlalomLogo_blue_png.png" />
+ </td>
+ </tr>
+ </table>
+   </div>
+   
+     <div id="accordion" ng-controller="CompetencyHelperCntrl">
   
             @foreach (CompetencyArea area in Model.CompetencyAreas)
             { 
@@ -144,37 +217,39 @@
              
            <div id="modalView">
        
-                <div class="modalContent">
+                <div class="cardModal">
                     
-                   
-         
-                  
-                    <strong>{{selectedCard.CompetencyName}}</strong> <br /><br />
+                    <h5>{{selectedCard.CompetencyName}}</h5> 
                     <p>Competency Description: {{selectedCard.Description}}</p>
+
+                     <div class="border"></div>
              
                 <div class="currentInterview">
-                   <strong>Competency Feedback</strong><br /><br />
+                   <h5>Competency Feedback</h5>
                  <span>Candidate Level: </span>   <select>
                     <option>No Knowledge</option>
                     <option>Apprentice</option>
                     <option>Master</option>
                     </select><br />
                     
-                    <span>Notes: </span><textarea maxChars="255"></textarea>
+                    <span>Notes: </span><textarea></textarea>
              
                 </div>
+
+                <div class="border"></div>
              
-             <strong>Interview History</strong>
+             
              <div class="interviewedAlready">
                     
-                    <div class="row">
-                    <div class="span3">
-                        <p>Interviewed By: </p>
+                 <h5>Interview History</h5>
+                <div class="row">
+                        <div class="span3">
+                            <p>Interviewed By: </p>
                          <ul>
                             <li ng-repeat="interviewers in selectedCard.InterviewedBy">{{interviewers}}</li>                  
                          </ul>
                     
-                    </div>
+                </div>
 
                     <div class="span3">
                     <p>Level</p>
@@ -202,8 +277,13 @@
        </div>
 
 
-       
-    </section>
+
+
+   
+   </div>
+
+    
+</section>
             }
 
 

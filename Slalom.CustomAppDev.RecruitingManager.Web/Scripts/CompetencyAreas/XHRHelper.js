@@ -27,7 +27,7 @@
            CompetencyDescription: 'CompetencyDescription 2',
            Notes: 'Test Notes2',
            Level: 'Apprentice',
-           InterviewedBy: ['Person 1', 'Person 2', 'Person 3']
+           InterviewedBy: ['Michael Bruyette', 'Larry Ficek', 'Eric Winton', 'Russell Norris'],
 
        }];
 

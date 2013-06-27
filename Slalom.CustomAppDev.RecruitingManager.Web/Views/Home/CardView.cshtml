@@ -12,12 +12,15 @@
             <div class="span4">
                 <div class="cardContent" ng-click="getSelectedCard($index)">
               
-                    <strong>{{competency.CompetencyName}}</strong><br />
-                    <span>{{competency.Description}}</span><br /><br />
+                    <strong>{{competency.CompetencyName}}</strong>
+                    <span>{{competency.Description}}</span>
                     <div class="interviewedAlready">
-                        <strong>{{competency.History}}</strong> <br />
-                        <span>Level: {{competency.Level}}</span> <br />
-                        <span>Interviewed By: {{competency.InterviewedBy}}</span>
+                        <p>Interviewed By: </p>
+                        <ul>
+                        <li ng-repeat="interviewer in competency.InterviewedBy">{{interviewer}}</li>
+                        </ul>
+                        
+                        
                    </div>
                </div>
             </div>

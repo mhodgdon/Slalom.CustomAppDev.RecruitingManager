@@ -232,6 +232,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\BrendanPic.png" />
+    <Content Include="Images\leftArrow.jpg" />
+    <Content Include="Images\rightArrow.jpg" />
+    <Content Include="Images\slalom.png" />
+    <Content Include="Images\SlalomLogo_blue_png.png" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
     <Content Include="Scripts\angular-bootstrap.js" />
@@ -634,7 +638,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60752</DevelopmentServerPort>
+          <DevelopmentServerPort>57211</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
