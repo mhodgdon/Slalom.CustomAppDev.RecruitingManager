@@ -13,6 +13,25 @@ namespace Slalom.CustomAppDev.RecruitingManager.Commons.DataRepositories
     {
         public List<CompetencyDomainObject> RetrieveCompetencyList(DomainObjects.Competency.CompetencyArea area)
         {
+            switch (area)
+            { 
+                case CompetencyArea.JavaAndOpenSource :
+
+                    return new List<CompetencyDomainObject>()
+                    {
+                        new CompetencyDomainObject()
+                        {
+                            Id = 1,
+                            Area = area,
+                            CompetencyDescription = "Inheritance, Interfaces, Exception handling, Futures",
+                            ReviewCategory = "Java"
+                        }
+                    };
+            }
+
+
+            // Will hook this up to the database later ...
+
             using (RecruitingManager.Data.RecruitingManagerEntities entities = new Data.RecruitingManagerEntities())
             {
                 return entities.Competencies
