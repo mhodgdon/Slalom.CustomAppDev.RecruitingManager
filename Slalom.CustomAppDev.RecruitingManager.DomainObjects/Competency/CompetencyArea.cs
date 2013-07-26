@@ -13,6 +13,7 @@ namespace Slalom.CustomAppDev.RecruitingManager.DomainObjects.Competency
         OtherPlatforms,
         GeneralEngineering,
         ProjectManagement,
-        ConsultingSkills
+        ConsultingSkills,
+        CulturalFit
     }
 }
