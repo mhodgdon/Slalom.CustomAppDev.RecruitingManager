@@ -58,6 +58,12 @@
       <LastGenOutput>RecruitingManagerModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Data Scripts\Competency Seed.sql" />
+    <Content Include="Scripts\Data Scripts\Candidate Seed.sql" />
+    <Content Include="Scripts\Data Scripts\Competency Feedback Seed.sql" />
+    <Content Include="Scripts\Data Scripts\Interviewer Seed.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

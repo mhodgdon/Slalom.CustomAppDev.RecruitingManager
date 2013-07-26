@@ -1,0 +1,5 @@
+﻿insert into interviewer(firstname, lastname, emailaddress) values('Michael', 'Hodgdon', 'email@email.com')
+insert into interviewer(firstname, lastname, emailaddress) values('Anatoly', 'Sapashnik', 'email@email.com')
+insert into interviewer(firstname, lastname, emailaddress) values('Rob', 'Daigneau', 'email@email.com')
+insert into interviewer(firstname, lastname, emailaddress) values('Brendan', 'Shoch', 'email@email.com')
+insert into interviewer(firstname, lastname, emailaddress) values('Mahesh', 'Guruswamy', 'email@email.com')

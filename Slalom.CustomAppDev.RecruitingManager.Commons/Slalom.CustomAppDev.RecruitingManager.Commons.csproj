@@ -45,6 +45,8 @@
     <Compile Include="DataHelpers\CompetencyAreaHelper.cs" />
     <Compile Include="DataRepositories\CandidateDataRepository.cs" />
     <Compile Include="DataRepositories\CompetencyDataRepository.cs" />
+    <Compile Include="DataRepositories\CompetencyFeedbackDataRepository.cs" />
+    <Compile Include="DataRepositories\ICompetencyFeedbackDataRepository.cs" />
     <Compile Include="DataRepositories\FeedbackDataRepository.cs" />
     <Compile Include="DataRepositories\ICandidateDataRepository.cs" />
     <Compile Include="DataRepositories\ICompetencyDataRepository.cs" />

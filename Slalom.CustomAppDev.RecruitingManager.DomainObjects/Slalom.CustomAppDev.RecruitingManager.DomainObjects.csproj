@@ -46,6 +46,7 @@
     <Compile Include="Common\ConsultingRole.cs" />
     <Compile Include="Competency\CompetencyArea.cs" />
     <Compile Include="Competency\CompetencyDomainObject.cs" />
+    <Compile Include="Competency\CompetencyFeedbackDomainObject.cs" />
     <Compile Include="Interviewer\InterviewerDataContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecruitingHistory\RecruitingHistoryDomainObject.cs" />

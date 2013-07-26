@@ -129,6 +129,7 @@
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\CompetencyAreaController.cs" />
     <Compile Include="Controllers\CompetencyController.cs" />
+    <Compile Include="Controllers\CompetencyFeedbackController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterviewerController.cs" />

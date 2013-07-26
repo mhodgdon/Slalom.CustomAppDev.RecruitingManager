@@ -75,14 +75,14 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CompetencyArea" Type="int" Nullable="false" />
-          <Property Name="ReviewCategory" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="CompetencyDescription" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ReviewCategory" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CompetencyDescription" Type="nvarchar" Nullable="false" MaxLength="512" />
         </EntityType>
         <EntityType Name="CompetencyFeedback">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CandidateId" Type="int" Nullable="false" />
           <Property Name="InterviewerId" Type="int" />
           <Property Name="CompetencyId" Type="int" Nullable="false" />
